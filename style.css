@@ -15,7 +15,7 @@ body {
 
 #calcBody {
     border: 1px solid black;
-    width: 30rem;
+    width: 27rem;
     height: 40rem;
 
     padding: 2rem;
@@ -27,24 +27,25 @@ body {
 
 #screen {
     border: 1px solid black;
-    height: 5rem;
+    height: 6rem;
 }
 
 #keys {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.6rem;
 }
 
 .row {
     display: flex;
     justify-content: space-evenly;
-    gap: 0.4rem;
+    gap: 0.6rem;
 }
 
 .button {
-    padding: 2rem 2rem;
+    padding: 1.5rem;
     flex: 1 1 100%;
+    font-size: 1.5rem;
 }
 
 .topButton {
