@@ -37,6 +37,25 @@ h1 {
     border-radius: 1rem;
     height: 6rem;
     background-color: #ffffff;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#equation {
+    padding: 0.8rem 2rem 0.5rem 2rem;
+    font-size: 1rem;
+    color: rgb(145, 142, 142)
+}
+
+#num {
+    padding: 0 2rem 0.75rem 1.5rem;
+    font-size: 2rem;
+    max-width: 90%;
+
+    letter-spacing: 0.05rem;
 }
 
 #keys {
