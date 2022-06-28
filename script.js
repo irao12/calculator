@@ -161,7 +161,7 @@ function setup(){
             if (deleted == '-' || deleted == '+' || deleted == '/' || deleted == '*') {
                 currOperation = '';
                 isSecondNum = false;
-                currNum = firstNum;
+                currNum = '' + firstNum;
             }
 
             else if (Number.isFinite(Number.parseFloat(deleted))) {
