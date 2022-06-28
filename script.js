@@ -77,12 +77,14 @@ function setup(){
 
     operators.forEach( (operator) => {
         operator.addEventListener('click', (e) => {
+            // if only the first number has been entered, move onto the second
             if (!isSecondNum) {
                 currNum = "";
                 num.textContent +=  e.target.textContent ;
                 isSecondNum = true;
                 currOperation = e.target.textContent;
             }
+
             else {
                 if (currOperation == "/" && secondNum == 0){
                     window.alert("Cannot divide by zero!");
@@ -91,16 +93,19 @@ function setup(){
                 // change the operator and update screen
                 else if (!secondNum && currOperation != ''){
                     currOperation = e.target.textContent;
-                    num.textContent = num.textContent.substring(0, num.textContent.length-2) 
+                    num.textContent = num.textContent.substring(0, num.textContent.length-1) 
                                       + e.target.textContent;
                 }
 
                 else{
                     equation.textContent = num.textContent + " =";
                     let result = operate(currOperation, firstNum, secondNum);
+                    firstNum = result;
+                    if (!Number.isInteger(result)){
+                        result = +result.toFixed(8);
+                    }
                     num.textContent = result;
 
-                    firstNum = result;
                     secondNum = NaN;
                     currOperation = e.target.textContent;
                     num.textContent +=  currOperation ;
@@ -118,10 +123,14 @@ function setup(){
         else if (secondNum && currOperation != ''){
             equation.textContent = num.textContent + " =";
             let result = operate(currOperation, firstNum, secondNum);
-            num.textContent = result;
-
-            currOperation = '';
             firstNum = result;
+            if (!Number.isInteger(result)) {
+                result = +result.toFixed(10);
+            }
+
+            num.textContent = result;
+            currOperation = '';
+            
             secondNum = NaN;
             isSecondNum = false;
             currNum = result;
