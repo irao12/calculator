@@ -73,7 +73,7 @@ h1 {
 .button {
     padding: 1.5rem;
     flex: 1 1 100%;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     background-color: #accacf;
     border-radius: 0.75rem;
     border-width: 0.15rem;
@@ -85,6 +85,18 @@ h1 {
 
 .button:active {
     background-color: #8C9A9E;
+}
+
+.operator {
+    background-color: #a3c4e4;
+}
+
+.operator:hover {
+    background-color: #b7d7f1;
+}
+
+.operator:active {
+    background-color: #91aeca;
 }
 
 .topButton {
