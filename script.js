@@ -49,17 +49,18 @@ function setup(){
 
     numberButtons.forEach( (btn) => {
         btn.addEventListener('click', (butt) => {
+            if (equation.textContent == 'none' || currOperation != ''){
+                let currDigit = butt.target.textContent;
+                currNum += currDigit;
+                num.textContent += currDigit;
 
-            let currDigit = butt.target.textContent;
-            currNum += currDigit;
-            num.textContent += currDigit;
-
-            // parse currNum into a float and set the appropriate number to it
-            if (!isSecondNum){
-                firstNum = Number.parseFloat(currNum);
-            }
-            else {
-                secondNum = Number.parseFloat(currNum);
+                // parse currNum into a float and set the appropriate number to it
+                if (!isSecondNum) {
+                    firstNum = Number.parseFloat(currNum);
+                }
+                else {
+                    secondNum = Number.parseFloat(currNum);
+                }
             }
         })
     });
