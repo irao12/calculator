@@ -50,6 +50,7 @@ function setup(){
     numberButtons.forEach( (btn) => {
         btn.addEventListener('click', (butt) => {
             if (equation.textContent == 'none' || currOperation != ''){
+            // equivalent to if the current number is not the result of a previous operation
                 let currDigit = butt.target.textContent;
                 currNum += currDigit;
                 num.textContent += currDigit;
@@ -68,6 +69,7 @@ function setup(){
     document.querySelector("#decimal").addEventListener('click', ()=>{
         // if the current number does not have a decimal yet, add one
         if (equation.textContent == 'none' || currOperation != '') {
+        // equivalent to if the current number is not the result of a previous operation
             if (!hasDecimal) {
                 currNum += "."
                 num.textContent += ".";
@@ -88,10 +90,12 @@ function setup(){
                 currOperation = e.target.textContent;
             }
 
+            // if it is currently changing the second number
             else {
                 if (currOperation == "/" && secondNum == 0){
                     window.alert("Cannot divide by zero!");
                 }
+
                 // if the secondNum has not been entered (last thing entered was an operator)
                 // change the operator and update screen
                 else if (!secondNum && currOperation != ''){
@@ -104,6 +108,7 @@ function setup(){
                     equation.textContent = num.textContent + " =";
                     let result = operate(currOperation, firstNum, secondNum);
                     firstNum = result;
+
                     if (!Number.isInteger(result)){
                         result = +result.toFixed(8);
                     }
@@ -123,7 +128,9 @@ function setup(){
         if (currOperation == "/" && secondNum == 0) {
             window.alert("Cannot divide by zero!");
         }
+
         else if (secondNum && currOperation != ''){
+        // equivalent to if the current number is not the result of a previous operation
             equation.textContent = num.textContent + " =";
             let result = operate(currOperation, firstNum, secondNum);
             firstNum = result;
@@ -142,6 +149,7 @@ function setup(){
 
 
     document.querySelector("#clear").addEventListener('click', () => {
+        // reset everything
         num.textContent = '';
         equation.textContent = 'none'
         currNum = "";
