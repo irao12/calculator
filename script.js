@@ -152,19 +152,20 @@ function setup(){
     document.querySelector("#delete").addEventListener('click', () => {
         let text = num.textContent;
         
-        if (equation.textContent != 'none' && (isSecondNum && currOperation != '')){
+        if (equation.textContent == 'none' || isSecondNum){
             const deleted = text[text.length - 1];
-            num.textContent = text.substring(0, num.textContent.length-1);
+            num.textContent = text.substring(0, num.textContent.length - 1);
+            console.log(deleted);
 
-            if (deleted == '-' || deleted == '+' || deleted =='/' || deleted =='*'){
+            if (deleted == '-' || deleted == '+' || deleted == '/' || deleted == '*') {
                 currOperation = '';
                 isSecondNum = false;
                 currNum = firstNum;
             }
-            
-            else if (Number.isFinite(Number.parseFloat(deleted))){
-                currNum = currNum.substring(0, currNum.length-1);
-                if (!isSecondNum){
+
+            else if (Number.isFinite(Number.parseFloat(deleted))) {
+                currNum = currNum.substring(0, currNum.length - 1);
+                if (!isSecondNum) {
                     firstNum = Math.floor(firstNum / 10);
                 }
                 else {
