@@ -155,7 +155,6 @@ function setup(){
         if (equation.textContent == 'none' || isSecondNum){
             const deleted = text[text.length - 1];
             num.textContent = text.substring(0, num.textContent.length - 1);
-            console.log(deleted);
 
             if (deleted == '-' || deleted == '+' || deleted == '/' || deleted == '*') {
                 currOperation = '';
