@@ -67,10 +67,12 @@ function setup(){
 
     document.querySelector("#decimal").addEventListener('click', ()=>{
         // if the current number does not have a decimal yet, add one
-        if (!hasDecimal) {
-            currNum += "."
-            num.textContent += ".";
-            hasDecimal = true;
+        if (equation.textContent == 'none' || currOperation != '') {
+            if (!hasDecimal) {
+                currNum += "."
+                num.textContent += ".";
+                hasDecimal = true;
+            }
         }
     });
 
